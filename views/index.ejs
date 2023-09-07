@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- fontawesome icons -->
+    <script src="https://kit.fontawesome.com/4a1ba59dbe.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="search">
+            <form action="/submit" method="post">
+                <input type="text" name="city" placeholder="Enter city name">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+
+        <div class="content">
+            <% if ( condition=="Clouds" ) { %>
+                <i class="fa-solid fa-cloud" style="font-size: 90px; color: rgb(192, 225, 235); margin-top: 20px;"></i>
+                <% } else if ( condition=="Clear" ) { %>
+                    <i class="fa-solid fa-sun" style="font-size: 90px; color: yellow; margin-top: 20px;"></i>
+                    <% } else if ( condition=="Drizzle" ) { %>
+                        <i class="fa-solid fa-cloud-sun-rain"
+                            style="font-size: 90px; color: rgb(192, 225, 235); margin-top: 20px;"></i>
+                        <% } else if ( condition=="Rain" ) { %>
+                            <i class="fa-solid fa-cloud-showers-heavy"
+                                style="font-size: 90px; color: rgb(38, 68, 77); margin-top: 20px;"></i>
+                            <% } else if ( condition=="Haze" ) { %>
+                                <i class="fa-solid fa-smog"
+                                    style="font-size: 90px; color: rgb(38, 68, 77); margin-top: 20px;"></i>
+                                <% } %>
+                                <h3 style="margin-top: 5px;">
+                                    <%= condition %>
+                                </h3    >
+
+                                    <h1>
+                                        <%= temp %>°C
+                                    </h1>
+                                    
+                                    <h2>
+                                        <%= cityname %>
+                                    </h2>
+
+                                    <div class="details">
+                                        <div class="col">
+                                            <i class="fa-solid fa-water"></i>
+                                            <div>
+                                                <p>
+                                                    <%= humid %>% <br> Humidity
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <i class="fa-solid fa-wind"></i>
+                                            <div>
+                                                <p>
+                                                    <%= speed %> km/h <br>Wind speed
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
